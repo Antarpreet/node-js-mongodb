@@ -11,3 +11,22 @@ A simple Todo manager using mongoose and express, tested with Postman and mocha,
 - '/users/me' - GET <br/> - checks for 'x-auth' header in request, if found returns the user, otherwise returns 401. <br/> <br/>
 - '/users/login' - POST <br/> - checks for 'email' and 'password' property in request body, if found login the user and returns a new auth token in 'x-auth' header, otherwise returns 400. <br/> <br/>
 - '/users/me/token' - DELETE <br/> - checks for 'x-auth' header in request, if found logout the user and deletes token from mongodb, otherwise returns 401 or 400. <br/>
+
+### To run this app locally:
+1. npm install in root directory.
+2. create config.json file in 'App_Root_Folder/server/config' with following structure:
+```
+{
+    "test": {
+        "PORT": 3000,
+        "MONGODB_URI": "your_mongodb_uri",
+        "JWT_SECRET": "secret_for_creating_tokens_for_authentication"
+    },
+    "development": {
+        "PORT": 3000,
+        "MONGODB_URI": "your_mongodb_uri",
+        "JWT_SECRET": "secret_for_creating_tokens_for_authentication"
+    }
+}
+```
+3. npm start to run the server on http://localhost:3000
